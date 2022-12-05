@@ -3,10 +3,111 @@
 <head>
 	<meta charset="UTF-8">
 	<title>superanckie_przepisy_z_ziemniaków</title>
+	<script>
+		function goBack() {
+		  window.history.back()
+		}
+		</script>
 </head>
+ 
 <body style="background-color:LightGray">
   <h1 style="background-color:Orange"><b><em>Z I E M N I A K I</em></b></h1>
   <h2>K0pytka</h2>
+  
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Przycisk pokazujący czas i lokacje</button>
+<p id="demo">Ten napis zaraz zniknie dzięki Javie</p>
+
+<button onclick="myFunction2()">Wypróbuj mnie</button>
+
+<script>
+function myFunction2() {
+  alert("Wyskakujące okienko!");
+}
+</script>
+<h2>informacja o tym czy ciasteczka są aktywne:</h2>
+<p id="demo"></p>
+<script>
+document.getElementById("demo").innerHTML =
+"cookiesEnabled is " + navigator.cookieEnabled;
+</script>
+<h2>Przycisk cofający do poprzedniej strony:</h2>
+
+<input type="button" value="Back" onclick="goBack()">
+<h2>
+	Alert wyskakujący po odliczonym czasie:
+</h2>
+
+<p>Kliknij w przycisk i poczekaj 3 sekundy</p>
+
+<button onclick="setTimeout(myFunction, 3000);">Tutaj!</button>
+
+<script>
+function myFunction() {
+  alert('Życzę smacznej kawusi ;D');
+}
+</script>
+<h2>Podmiana tekstu daty:</h2>
+<button type="button" onclick='document.getElementById("demo").innerHTML = "Tadaaaaa"'>Zmieniam tekst w dacie:</button>
+<h2>Wyłączanie światła:</h2>
+<button onclick="document.getElementById('myImage').src='gospo white.png'">obrazek1</button>
+
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='gospo black.png'">obrazek2</button>
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"The full URL of this page is:<br>" + window.location.href;
+</script>
+
+<p id="demo"></p>
+<canvas id="myCanvas" width="400" height="400" style="border:1px solid grey"></canvas>
+
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+canvas.height = canvas.width;
+ctx.transform(1, 0, 0, -1, 0, canvas.height)
+
+const xArray = [50,60,70,80,90,100,110,120,130,140,150];
+const yArray = [7,8,8,9,9,9,10,11,14,14,15];
+
+ctx.fillStyle = "red";
+for (let i = 0; i < xArray.length-1; i++) {
+  let x = xArray[i]*400/150;
+  let y = yArray[i]*400/15;
+  ctx.beginPath();
+  ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
+  ctx.fill();
+}
+</script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+<h2>Kolejny wykres:</h2>
+<script>
+	var aArray = [50,60,70,80,90,100,110,120,130,140,150];
+	var bArray = [7,8,8,9,9,9,10,11,14,14,15];
+	
+	// Define Data
+	var data = [{
+	  x:xArray,
+	  y:yArray,
+	  mode:"markers"
+	}];
+	
+	// Define Layout
+	var layout = {
+	  xaxis: {range: [40, 160], title: "Square Meters"},
+	  yaxis: {range: [5, 16], title: "Price in Millions"},  
+	  title: "House Prices vs. Size"
+	};
+	
+	// Display using Plotly
+	Plotly.newPlot("myPlot", data, layout);
+	</script>
 <ul>
 	<li><mark>Ziemniaki</mark></li>
 	<li>Jajko</li>
